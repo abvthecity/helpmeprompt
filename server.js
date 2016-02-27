@@ -31,11 +31,11 @@ var options = {
 var req = http.request(options,function(res){
 	console.log(res);
 })
-*/
 
 
 req.write(post_data);
 req.end();
+*/
 
 http.listen(process.env.PORT || 5000, function(){
 	console.log("Server up and running on port 5000");
