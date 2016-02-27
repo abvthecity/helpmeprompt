@@ -28,7 +28,7 @@ module.exports = function(app){
 			sendmms: true,
 			showauthurl: false,
 			authstate: null,
-			text: userkey,
+			text: "HEY",
 			speech: "Hello World! You said \"Hello World!\".",
 			status: "OK",
 			webhookreply: null
