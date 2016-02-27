@@ -14,6 +14,6 @@ require('./config/routes.js')(app);
 
 var mongoose = require('mongoose');**/
 
-http.listen(8000, function(){
-	console.log("Server up and running on port 8000");
+http.listen(process.env.PORT || 5000, function(){
+	console.log("Server up and running on port 5000");
 })

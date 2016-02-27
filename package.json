@@ -1,10 +1,13 @@
 {
+  "engines": {
+    "node": "4.2.1"
+  },
   "name": "helpmeprompt",
   "version": "1.0.0",
   "description": "A prompt app to connect patients with first responders via text messages.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +26,6 @@
     "connect-mongo": "^1.1.0",
     "express": "^4.13.4",
     "http": "0.0.0",
-    "nodemon": "^1.9.1",
     "path": "^0.12.7",
     "socket.io": "^1.4.5"
   }
