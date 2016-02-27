@@ -28,30 +28,13 @@ module.exports = function(app){
 			sendmms: true,
 			showauthurl: false,
 			authstate: null,
-			text: "Hello World! You said \"Hello World!\".",
+			text: userkey,
 			speech: "Hello World! You said \"Hello World!\".",
 			status: "OK",
 			webhookreply: null
 		})
 
 		res.end(json);
-
-		var options = {
-			hostname: 'api.dev.promptapp.io',
-			path: '/api/1.0/webhook/@health_00041',
-			method: 'POST',
-			headers: {
-				'Prompt-API-key': apikey
-			}
-		}
-
-
-		var req = http.request(options,function(res){
-			console.log(res);
-		})
-
-		req.write(post_data);
-		req.end();
 		
 	})
 
