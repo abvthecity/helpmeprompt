@@ -18,8 +18,35 @@ module.exports = function(app){
 
 
 	app.post('/bot', function(req, res){
-		//var data = JSON.parse(req.body);
-		res.send(req);
+
+		res.writeHead(200, {"Content-Type": "application/json"});
+
+		var endpoint = 'http://api.dev.promptapp.io/api/1.0/webhook/@health_00041';
+		var apikey = '4c68e7f30b99a82be30c41c99b587ed4';
+		var data = JSON.parse(req.body);
+		var userkey = data.uuid;
+
+		var post_data = {"uuid":userkey, "message":"hello world!"}
+
+		var json = JSON.stringify({
+			sendmms: true,
+			showauthurl: false,
+			authstate: null,
+			text: "Hello World! You said \"Hello World!\".",
+			speech: "Hello World! You said \"Hello World!\".",
+			status: "OK",
+			webhookreply: null,
+			images: [
+				{
+					imageurl: "http://api.dev.promptapp.io/images/random/helloworld.gif",
+					alttext: "Hello World!"
+				}
+			]
+		})
+
+		res.end(json);
+
+		
 	})
 
 }
