@@ -12,21 +12,16 @@ module.exports = function(app){
 	// 4c68e7f30b99a82be30c41c99b587ed4 << health
 	// 2e937aa8a738825937e1bf07664d4710 << helpme
 
-	app.get('/bot', function(req, res){
-		res.send("This is the bot. Please send post request, thx :3");
-	})
-
-
 	app.post('/bot', function(req, res){
 
 		res.writeHead(200, {"Content-Type": "application/json"});
 
 		var endpoint = 'http://api.dev.promptapp.io/api/1.0/webhook/@health_00041';
 		var apikey = '4c68e7f30b99a82be30c41c99b587ed4';
-		var data = JSON.parse(req.body);
-		var userkey = data.uuid;
+		//var data = JSON.parse(req.body);
+		//var userkey = data.uuid;
 
-		var post_data = {"uuid":userkey, "message":"hello world!"}
+		//var post_data = {"uuid":userkey, "message":"hello world!"}
 
 		var json = JSON.stringify({
 			sendmms: true,
