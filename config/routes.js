@@ -1,4 +1,3 @@
-var http = require('http');
 var path = require('path');
 
 module.exports = function(app){
@@ -22,19 +21,20 @@ module.exports = function(app){
 		var data = JSON.parse(req.body);
 		var userkey = data.uuid;
 
-		var post_data = {"uuid":userkey, "message":"hello world!"}
+		//var post_data = {"uuid":userkey, "message":"hello world!"}
 
 		var json = JSON.stringify({
 			sendmms: true,
 			showauthurl: false,
 			authstate: null,
-			text: "HEY",
+			text: urlkey,
 			speech: "Hello World! You said \"Hello World!\".",
 			status: "OK",
-			webhookreply: null
+			webhookreply: null,
 		})
 
 		res.end(json);
+
 		
 	})
 
