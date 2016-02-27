@@ -1,3 +1,4 @@
+var http = require('http');
 var path = require('path');
 
 module.exports = function(app){
@@ -18,10 +19,10 @@ module.exports = function(app){
 
 		var endpoint = 'http://api.dev.promptapp.io/api/1.0/webhook/@health_00041';
 		var apikey = '4c68e7f30b99a82be30c41c99b587ed4';
-		//var data = JSON.parse(req.body);
-		//var userkey = data.uuid;
+		var data = JSON.parse(req.body);
+		var userkey = data.uuid;
 
-		//var post_data = {"uuid":userkey, "message":"hello world!"}
+		var post_data = {"uuid":userkey, "message":"hello world!"}
 
 		var json = JSON.stringify({
 			sendmms: true,
@@ -30,16 +31,26 @@ module.exports = function(app){
 			text: "Hello World! You said \"Hello World!\".",
 			speech: "Hello World! You said \"Hello World!\".",
 			status: "OK",
-			webhookreply: null,
-			images: [
-				{
-					imageurl: "http://api.dev.promptapp.io/images/random/helloworld.gif",
-					alttext: "Hello World!"
-				}
-			]
+			webhookreply: null
 		})
 
 		res.end(json);
+
+		var options = {
+			hostname: 'api.dev.promptapp.io',
+			path: '/api/1.0/webhook/@health_00041',
+			method: 'POST',
+			headers: {
+				'Prompt-API-key': apikey
+			}
+		}
+
+
+		var req = http.request(options,function(res){
+			console.log(res);
+		})
+
+		req.write(post_data);
 
 		
 	})
