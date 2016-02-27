@@ -51,7 +51,7 @@ module.exports = function(app){
 		})
 
 		req.write(post_data);
-
+		req.end();
 		
 	})
 
