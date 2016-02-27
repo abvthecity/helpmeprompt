@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "4.2.1"
+  },
   "name": "helpmeprompt",
   "version": "1.0.0",
   "description": "A prompt app to connect patients with first responders via text messages.",
