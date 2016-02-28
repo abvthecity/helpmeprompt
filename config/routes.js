@@ -30,7 +30,13 @@ module.exports = function(app){
 			text: "Hello World! You said \"Hello World!\".",
 			speech: "Hello World! You said \"Hello World!\".",
 			status: "OK",
-			webhookreply: null
+			webhookreply: null,
+			images: [
+				{
+					imageurl: "http://api.dev.promptapp.io/images/random/helloworld.gif",
+					alttext: "Hello World!"
+				}
+			]
 		})
 
 		res.end(json);
