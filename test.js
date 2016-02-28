@@ -5,6 +5,7 @@ var twilio = require('twilio');
 var accountSid = 'ACbd0d87dc377f7024036dafbd85bbbcfc';
 var authToken = "e7e06bcafce438eafb6dfb459d7a1085";
 var client = require('twilio')(accountSid, authToken);
+var http = require('http');
 
 var hasMessageSent = 0;
 // parse application/json
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded())
 app.post('/', function(req,res) {
   //var docNum = "+14084558851";
   //console.log(req.body);
-  var docNum = "+13528712319";
+  var docNum = "+14084558851";
   var resp = new twilio.TwimlResponse();
   console.log(req.body.From);
   if (req.body.From == docNum){ //if the doctor is messaging the user
@@ -28,9 +29,18 @@ app.post('/', function(req,res) {
     //sendBackToUser(req.body.Body, "+13528712319");
     //sendBackToUser(req.body.Body, "+14084558851");
     var URIEncodedReponse = encodeURIComponent(doctorResponse);
-    var medicalDefinition = "www.wolframcloud.com/objects/727f7ea4-bee6-496e-8f8a-fe14b249bf61/parseText?x=" + URIEncodedReponse;
-    sendBackToUser(medicalDefinition, "+14256159542");
-    sendBackToUser(medicalDefinition, "+16263479537");
+    var medicalDefinition = "/objects/727f7ea4-bee6-496e-8f8a-fe14b249bf61/parseText?x=" + URIEncodedReponse;
+    http.get({host:"www.wolframcloud.com", path: medicalDefinition}, function(rip){
+      var body = "";
+      rip.on('data', function(ch) { body += ch })
+      rip.on('end',function(){
+          var spl = body.split("[");
+          if(spl[0] != "StringJoin"){
+            sendBackToUser(body, "+14256159542");
+            sendBackToUser(body, "+16263479537");
+          }
+      })
+    })
     //sendBackToUser(medicalDefinition, "+13528712319");
   }
   else { //If the user is messaging the doctor
