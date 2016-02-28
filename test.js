@@ -9,20 +9,29 @@ var client = require('twilio')(accountSid, authToken);
 var hasMessageSent = 0;
 // parse application/json
 
-//Doctor's phone: +13528712319
+//+13528712319
 //User's phone: 4256159542, +16263479537
 app.use(bodyParser.urlencoded())
 
 
 app.post('/', function(req,res) {
-  var docNum = "+14084558851";
+  //var docNum = "+14084558851";
   //console.log(req.body);
+  var docNum = "+13528712319";
   var resp = new twilio.TwimlResponse();
   console.log(req.body.From);
-  if (req.body.From == "+14084558851"){ //if the doctor is messaging the user
+  if (req.body.From == docNum){ //if the doctor is messaging the user
     console.log("doctor");
+    var doctorResponse = req.body.Body;
     sendBackToUser(req.body.Body, "+14256159542");
-    //endBackToUser(req.body.Body, "+14084558851");
+    sendBackToUser(req.body.Body, "+16263479537");
+    //sendBackToUser(req.body.Body, "+13528712319");
+    //sendBackToUser(req.body.Body, "+14084558851");
+    var URIEncodedReponse = encodeURIComponent(doctorResponse);
+    var medicalDefinition = "www.wolframcloud.com/objects/727f7ea4-bee6-496e-8f8a-fe14b249bf61/parseText?x=" + URIEncodedReponse;
+    sendBackToUser(medicalDefinition, "+14256159542");
+    sendBackToUser(medicalDefinition, "+16263479537");
+    //sendBackToUser(medicalDefinition, "+13528712319");
   }
   else { //If the user is messaging the doctor
     var text = req.body.Body;
@@ -58,7 +67,6 @@ app.post('/', function(req,res) {
 app.listen(8000, function () {
   console.log('Example app listening on port 8000!');
 });
-
 
 /////////////////// Code to send back to the User//////
 
