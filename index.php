@@ -66,7 +66,7 @@ $request = new Request\Request();
 $response = new Response\Response();
 
 // This is our authentication key. This is the same key we ask Prompt to send us to avoid spoofing.
-$request->setAPIKey('4c68e7f30b99a82be30c41c99b587ed4');
+$request->setAPIKey('2Z1xF30H78lh0gm0O6CGeBxBF7V530Q3');
 
 // If the API is authenticated, we can proceed
 if ($request->isAPIAuthenticated()) {
