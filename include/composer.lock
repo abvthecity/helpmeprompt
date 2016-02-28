@@ -1,0 +1,99 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "0355291f14f9c299faf71eba328a2b69",
+    "packages": [
+        {
+            "name": "mashape/unirest-php",
+            "version": "v2.6.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mashape/unirest-php.git",
+                "reference": "73c2d903232bb5a125396e606b67314a87b8b21c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mashape/unirest-php/zipball/73c2d903232bb5a125396e606b67314a87b8b21c",
+                "reference": "73c2d903232bb5a125396e606b67314a87b8b21c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "0.1.*",
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Unirest": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Unirest PHP",
+            "homepage": "https://github.com/Mashape/unirest-php",
+            "keywords": [
+                "client",
+                "curl",
+                "http",
+                "https",
+                "rest"
+            ],
+            "time": "2016-02-16 16:45:52"
+        },
+        {
+            "name": "prompt-app-inc/prompt-lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:prompt-app-inc/prompt-lib.git",
+                "reference": "e3c5626e6ac1ae90de11d3d20a2ead2b3138d2d5"
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Prompt": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Prompt Bot Class Library PHP",
+            "homepage": "https://bitbucket.org/prompt-app-inc/prompt-lib",
+            "keywords": [
+                "bot",
+                "client",
+                "prompt"
+            ],
+            "support": {
+                "email": "james@promptapp.io"
+            },
+            "time": "2016-02-20 10:40:08"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "prompt-app-inc/prompt-lib": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
